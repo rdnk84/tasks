@@ -51,8 +51,8 @@ public class Calculator {
         return result;
     }
 
-    public  int getDivide(int numInt1, int numInt2) {
-        int result = numInt1 / numInt2;
+    public  double getDivide(int numInt1, int numInt2) {
+        double result = (double) numInt1 / numInt2;
         return  result;
     }
 
@@ -61,8 +61,8 @@ public class Calculator {
         return result;
     }
 
-    public  long getDivide(long numLong1, long numLong2) {
-        long result = numLong1 / numLong2;
+    public  double getDivide(long numLong1, long numLong2) {
+        double result = (double)numLong1 / numLong2;
         return result;
     }
 
