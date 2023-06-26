@@ -19,9 +19,9 @@ public class Main {
         System.out.println(r2);
 
 //        //task 1.3
-        int number = 10500;
-        int result = (number / 10) / 10;
-        System.out.println(result);
+        int number = 3;
+        double result =  ((double)number / 10) / 10;
+        System.out.println("task 1.3 result? " + result);
 
 //        //task 1.4
         double res = 3.6 * 4.1 * 5.9;
