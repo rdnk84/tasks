@@ -22,22 +22,3 @@ public class House {
     }
 
 }
-
-class MainHouse{
-
-    public static void main(String[] args) {
-
-        Integer currentYear = 2023;
-        House cityHouse = new House();
-        cityHouse.setAllData(78, 2015, "new Complex");
-        cityHouse.showAllData();
-        System.out.println("Комплексу " + cityHouse.ageCount(currentYear) + " лет");
-
-        House countryHouse = new House();
-        countryHouse.setAllData(2, 1948, "Selpo");
-        countryHouse.showAllData();
-        System.out.println("Постройке " + countryHouse.ageCount(currentYear) + " лет");
-
-
-    }
-}

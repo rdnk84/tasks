@@ -22,10 +22,4 @@ public class Tree {
     }
 }
 
-class showTree {
-    public static void main(String[] args) {
-        Tree emptyTree = new Tree();
-        Tree roseTree = new Tree(3, "Rose");
-        Tree fullTree = new Tree(15, true, "Oak");
-    }
-}
+

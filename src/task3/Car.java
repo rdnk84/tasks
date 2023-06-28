@@ -21,25 +21,7 @@ public class Car {
     public void showData(){
         System.out.println("Car name: " + this.name +  "  color:" + this.color +  "  weight:" + this.weight);
     }
-
-
 }
 
-class ShowCar {
-    public static void main(String[] args) {
 
-        Car carMercedes = new Car();
-        carMercedes.color = "red";
-        carMercedes.name = "Mercedes";
-        carMercedes.weight = 1000;
 
-        Car carLada = new Car();
-        carLada.color = "white";
-        carLada.name = "Lada";
-        carLada.weight = 500;
-
-        carMercedes.showData();
-        carLada.showData();
-
-    }
-}
