@@ -1,5 +1,6 @@
 package task4;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortArrays {
@@ -10,7 +11,7 @@ public class SortArrays {
         int[] sortedNumbers = {5, 15, 38, 42, 53, 67, 119, 200, 1043, 1563, 1827, 3000};
         int[] someArray = {2, 7, 8, 4};
 //        showOdd();
-//        divideOn();
+        divideOn();
 //        checkSum();
 //        checkNumber();
 //        checkNumberInArray(numbers);
@@ -19,7 +20,37 @@ public class SortArrays {
 //        refillArray();
 //        changeElements(someArray);
         int[] someArray2 = {2, 7, 8, 15, 7, 8};
-        findUniqueElement(someArray2);
+//        findUniqueElement(someArray2);
+
+        int[] someArray3 = {8, 7, 9, 5};
+//        sortBubble(someArray3);
+
+    }
+
+//    public static void sortBubble(int[] array) {
+//        for (int i = 1; i < array.length ; i++){
+//            if(array[i - 1] > array[i]) {
+//                int tempValue = array[i - 1];
+//                array[i - 1] = array[i];
+//                array[i] = tempValue;
+//            }
+//        }
+//        System.out.println(Arrays.toString(array));
+//    }
+
+    public static void sortBubble(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    int aj = array[j];
+                    int ai = array[i];
+
+                    array[j] = ai;
+                    array[i] = aj;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(array));
     }
 
 
@@ -32,21 +63,28 @@ public class SortArrays {
     }
 
     public static void divideOn() {
-        for (int i = 1; i < 101; i++) {
-            if (i % 3 == 0) {
-                System.out.println(i + ": делится на 3");
-            }
-        }
-        for (int i = 1; i < 101; i++) {
-            if (i % 5 == 0) {
-                System.out.println(i + ": делится на 5");
-            }
-        }
-        for (int i = 1; i < 101; i++) {
+        for (int i = 1; i <= 100; i++) {
             if (i % 3 == 0 && i % 5 == 0) {
                 System.out.println(i + ": делится на 3 и на 5");
             }
+            if(i % 15 == 0) {
+                System.out.println(i + ": делится на 15");
+            } else if (i % 5 == 0) {
+                System.out.println(i + ": делится на 5");
+            } else if (i % 3 == 0) {
+                System.out.println(i + ": делится на 3");
+            }
         }
+//        for (int i = 1; i < 101; i++) {
+//            if (i % 5 == 0) {
+//                System.out.println(i + ": делится на 5");
+//            }
+//        }
+//        for (int i = 1; i < 101; i++) {
+//            if (i % 3 == 0 && i % 5 == 0) {
+//                System.out.println(i + ": делится на 3 и на 5");
+//            }
+//        }
 
     }
 
@@ -152,18 +190,11 @@ public class SortArrays {
             newArray[i] = numbers[i];
         }
         newArray[numbers.length - 1] = numbers[0];
-        System.out.print("Array 1: " + "[");
-        for (int number : numbers) {
-            System.out.print(number + ", ");
-        }
-        System.out.println("]");
-        System.out.print("Array 2: " + "[");
-        for (int number : newArray) {
-            System.out.print(number + ", ");
-        }
-        System.out.println("]");
+        System.out.print("Array 1: " + Arrays.toString(numbers));
+        System.out.print("Array 2: " + Arrays.toString(newArray));
         return newArray;
     }
+
 
     public static int findUniqueElement(int[] nums) {
         int uniqueNum = nums[0];
