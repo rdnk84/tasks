@@ -4,6 +4,7 @@ public class NewUser extends User {
 
     @Override
     public void userInfo() {
-        System.out.println("я новый пользователь, меня зовут " + this.getInfo());
+
+        System.out.println("я новый пользователь, меня зовут " + this.getScanner().next());
     }
 }

@@ -11,7 +11,7 @@ public class SortArrays {
         int[] sortedNumbers = {5, 15, 38, 42, 53, 67, 119, 200, 1043, 1563, 1827, 3000};
         int[] someArray = {2, 7, 8, 4};
 //        showOdd();
-        divideOn();
+//        divideOn();
 //        checkSum();
 //        checkNumber();
 //        checkNumberInArray(numbers);
@@ -23,20 +23,10 @@ public class SortArrays {
 //        findUniqueElement(someArray2);
 
         int[] someArray3 = {8, 7, 9, 5};
-//        sortBubble(someArray3);
+        sortBubble(someArray3);
 
     }
 
-//    public static void sortBubble(int[] array) {
-//        for (int i = 1; i < array.length ; i++){
-//            if(array[i - 1] > array[i]) {
-//                int tempValue = array[i - 1];
-//                array[i - 1] = array[i];
-//                array[i] = tempValue;
-//            }
-//        }
-//        System.out.println(Arrays.toString(array));
-//    }
 
     public static void sortBubble(int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -52,6 +42,8 @@ public class SortArrays {
         }
         System.out.println(Arrays.toString(array));
     }
+
+    
 
 
     public static void showOdd() {
@@ -183,16 +175,14 @@ public class SortArrays {
     }
 
     public static int[] changeElements(int[] numbers) {
-        int[] newArray = new int[numbers.length];
 
-        newArray[0] = numbers[numbers.length - 1];
-        for (int i = 1; i < numbers.length; i++) {
-            newArray[i] = numbers[i];
-        }
-        newArray[numbers.length - 1] = numbers[0];
         System.out.print("Array 1: " + Arrays.toString(numbers));
-        System.out.print("Array 2: " + Arrays.toString(newArray));
-        return newArray;
+        int firstElement = numbers[0];
+        int lastElement = numbers[numbers.length - 1];
+        numbers[0] = lastElement;
+        numbers[numbers.length - 1] = firstElement;
+        System.out.print("Array 2: " + Arrays.toString(numbers));
+        return numbers;
     }
 
 

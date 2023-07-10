@@ -1,9 +1,5 @@
 package task6;
 
-import task6.temp.NewUser2;
-import task6.temp.User2;
-
-import java.util.Scanner;
 
 public class Main {
 
@@ -21,9 +17,10 @@ public class Main {
 //        child.printParentField();
 
 
-        NewUser user = new NewUser();
-//        user.initUser();
+        NewUser newUser = new NewUser();
+        User user = new User();
         user.userInfo();
+        newUser.userInfo();
 
 
     }
