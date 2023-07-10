@@ -22,10 +22,11 @@ public class Main {
         NewUser newUser = new NewUser();
 
         Scanner scanner = new Scanner(System.in);
-        String name = scanner.next();
-        String newUsername = scanner.next();
+        user.age = scanner.nextInt();
+        newUser.name = scanner.next();
+        user.userInfo();
+        newUser.userInfo();
 
-        user.nameInfo(name);
-        newUser.nameInfo(newUsername);
+
     }
 }

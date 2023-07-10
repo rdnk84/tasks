@@ -1,10 +1,11 @@
 package task6;
 
-public class NewUser extends User{
+public class NewUser extends User {
+
+    public String name;
 
     @Override
-    public void nameInfo(String newUsername) {
-
-        System.out.println("а я Новый пользователь, и меня зовут " + newUsername);
+    public void userInfo() {
+        System.out.println("я новый пользователь, меня зовут " + name);
     }
 }
