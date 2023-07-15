@@ -9,7 +9,7 @@ public class SortArrays {
 
         int[] numbers = {-2, -1, 28, 2, 333, 7, 19, 100, 1018, 3, 27, 30};
         int[] sortedNumbers = {5, 15, 38, 42, 53, 67, 119, 200, 1043, 1563, 1827, 3000};
-        int[] someArray = {2, 7, 8, 4};
+        int[] someArray = {2, 7, 18,  8, 4};
 //        showOdd();
 //        divideOn();
 //        checkSum();
@@ -23,8 +23,11 @@ public class SortArrays {
 //        findUniqueElement(someArray2);
 
         int[] someArray3 = {8, 7, 9, 5};
-        sortBubble(someArray3);
+//        sortBubble(someArray3);
 
+        int[] longArray = {44, 231, 23, 34, 54, 55, 435, 76, 87, 2, 3};
+      int[] result = mergeSort(someArray);
+        System.out.println("sorted array: " + Arrays.toString(result));
     }
 
 
@@ -43,7 +46,65 @@ public class SortArrays {
         System.out.println(Arrays.toString(array));
     }
 
-    
+    public static int[] mergeSort(int[] unsorted) {
+        System.out.println("original unsorted array: " + Arrays.toString(unsorted));
+
+        //условие выхода из рекурсии. Когда длина массива меньше двух - нет смысла дальше его делить пополам
+        if (unsorted.length < 2) {
+            return unsorted;
+        }
+
+        int mid = unsorted.length / 2;
+        int[] left = new int[mid];
+        int[] right;
+
+        //здесь мы смотрим, если в массиве было нечетное кол-во эл-тов, то тогда вторая половина должна быть больше на один
+        if (unsorted.length % 2 == 0) {
+            right = new int[mid];
+        } else {
+            right = new int[mid + 1];
+        }
+
+        //далее - заполняем левый и правый массивы
+        for (int i = 0; i < left.length; i++) {
+            left[i] = unsorted[i];
+        }
+        for (int i = 0; i < right.length; i++) {
+            right[i] = unsorted[mid + i];
+        }
+        //а здесь будем рекурсивно вызывать сами себя mergeSort();
+        left = mergeSort(left);
+        System.out.println("left: " + Arrays.toString(left));
+        right = mergeSort(right);
+        System.out.println("right: " + Arrays.toString(right));
+
+//        int[] result = mergeParts(left, right);
+
+        return mergeParts(left, right);
+    }
+
+    private static int[] mergeParts(int[] left, int[] right) {
+        int[] result = new int[left.length + right.length];
+
+        int leftPointer = 0;
+        int rightPointer = 0;
+        int resultPointer = 0;
+
+        while (leftPointer < left.length || rightPointer < right.length) {//т.е в каком-то из массивов мы уже можемвыйти за пределы. но пока в другом массиве еще нет -продолжаем цикл
+            if (leftPointer < left.length && rightPointer < right.length) {//а здесь условие-что в обоих массивах мы еще не вышли за пределы
+                if (left[leftPointer] < right[rightPointer]) {
+                    result[resultPointer++] = left[leftPointer++];
+                } else {
+                    result[resultPointer++] = right[rightPointer++];
+                }
+            } else if (leftPointer < left.length) {
+                result[resultPointer++] = left[leftPointer++];
+            } else if (rightPointer < right.length) {
+                result[resultPointer++] = right[rightPointer++];
+            }
+        }
+        return result;
+    }
 
 
     public static void showOdd() {
@@ -59,7 +120,7 @@ public class SortArrays {
             if (i % 3 == 0 && i % 5 == 0) {
                 System.out.println(i + ": делится на 3 и на 5");
             }
-            if(i % 15 == 0) {
+            if (i % 15 == 0) {
                 System.out.println(i + ": делится на 15");
             } else if (i % 5 == 0) {
                 System.out.println(i + ": делится на 5");
