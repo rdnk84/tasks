@@ -14,22 +14,22 @@ public class Main {
 
 //        ArrayList<Integer> someArrayList = new ArrayList<>(Arrays.asList(111, 14, 85, 48, 14, 115, 111, 32, 85, 115, 14, 55, 1067, 3));
 //        ArrayList<Integer> someArrayList1 = new ArrayList<>(Arrays.asList(111, 14, 85, 48, 115, 32, 55, 1067, 3));
-        findElement(bigLinkedList);
+//        findElement(bigLinkedList);
 //        System.out.println(someArrayList);
 //        setOfElements(someArrayList);
 
-//        Map<User, Integer> users = new HashMap<>();
-//        users.put(new User("Ivan"), 17);
-//        users.put(new User("Valentin"), 16);
-//        users.put(new User("Kirill"), 100);
-//        users.put(new User("Svetlana"), 57);
-//        users.put(new User("Konstantin"), 156);
-//        users.put(new User("Peter"), 62);
+        Map<User, Integer> users = new HashMap<>();
+        users.put(new User("Ivan"), 17);
+        users.put(new User("Valentin"), 16);
+        users.put(new User("Kirill"), 100);
+        users.put(new User("Svetlana"), 57);
+        users.put(new User("Konstantin"), 156);
+        users.put(new User("Peter"), 62);
 //        for (Map.Entry<User, Integer> pair : users.entrySet()) {
 //            System.out.println(pair.getKey().getName() + " " + pair.getValue());
 //        }
 
-//        showScore(users);
+        showScore(users);
 
     }
 
@@ -86,10 +86,11 @@ public class Main {
 
     public static void showScore(Map<User, Integer> users){
         Scanner scanner = new Scanner(System.in);
-        String aName = scanner.next();
+       String aName = scanner.next();
+        User aUser = new User(aName);
                 for (Map.Entry<User, Integer> pair : users.entrySet()) {
-                    if(pair.getKey().getName().equals(aName)) {
-                        System.out.println("score for " + pair.getKey().getName() + " is " + pair.getValue());
+                    if(pair.getKey().equals(aUser)) {
+                        System.out.println("scoure for " + pair.getKey().getName() + " is " + pair.getValue());
                     }
 
         }
