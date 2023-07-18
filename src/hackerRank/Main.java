@@ -11,9 +11,8 @@ public class Main {
         ArrayList<Integer> randomElements = fillArr();
 //        System.out.println(Arrays.toString(new ArrayList[]{fillArr()}));
 
-
-        ArrayList<Integer> oddElements = showOdd(randomElements);
-
+//        ArrayList<Integer> oddElements = showOdd(randomElements);
+        showEvenWithException(randomElements);
     }
 
     public static ArrayList<Integer> fillArr() {
@@ -52,37 +51,31 @@ public class Main {
 
     public static ArrayList<Integer> showOdd(ArrayList<Integer> arr) {
         Iterator<Integer> findOdd = arr.iterator();
-        while(findOdd.hasNext()) {
+        while (findOdd.hasNext()) {
             Integer element = findOdd.next();
-            if (element  % 2 == 0) {
+            if (element % 2 == 0) {
                 findOdd.remove();
             } else {
 //                System.out.println(element + " - нечётный");
             }
         }
-        for(Integer el : arr) {
+        for (Integer el : arr) {
             System.out.println(el);
         }
         return arr;
     }
 
-    public static ArrayList<Integer> showOddWithException(ArrayList<Integer> arr) {
-
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < arr.size(); i++) {
-            if (arr.get(i) % 2 == 0) {
-//                arr.set(i, 0);
-                arr.remove(i);
-                arr.size();
-                i--;
-            } else {
-//                newArr.add(arr.get(i));
-                builder.append(arr.get(i)).append(", ");
+    public static void showEvenWithException(ArrayList<Integer> arr) {
+        try {
+            for (int i = 0; i <= arr.size(); i++) {
+                if (arr.get(i) % 2 == 0) {
+                    System.out.println("our current ever number is: " + arr.get(i));
+                }
             }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("caught exception");
         }
-        String array = builder.toString();
-        System.out.println("массив из только нечета: " + array);
-        return arr;
+
+        System.out.println("final print out line");
     }
 }
