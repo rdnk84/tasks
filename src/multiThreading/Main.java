@@ -2,6 +2,9 @@ package multiThreading;
 
 import com.sun.webkit.ThemeClient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.System.*;
 import static java.util.stream.IntStream.range;
 
@@ -11,18 +14,22 @@ public class Main {
     private static final int INCREMENT_COUNT = 1000;
 
     public static void main(String[] args) throws InterruptedException {
+        List<Thread> threadList = new ArrayList<>();
 //        for (int i = 0; i <= 10; i++) {
 //            Thread thread = new Thread(new MyRunnable());
 //            showThreadState(thread);
 //            thread.start();
-////            thread.join();
+//            threadList.add(thread);
+////            showThreadState(thread);
+//        }
+//        for (Thread thread : threadList) {
 //            showThreadState(thread);
 //        }
+
 //        Counter counter = new Counter();
-//        for (int i = 0; i < 100; i++) {
+//        for (int i = 0; i <= 100; i++) {
 //            Thread thread = createCountIncrementInThread(INCREMENT_COUNT);
 //            thread.start();
-//            thread.join();
 //        }
 //        out.println(counter.getCount());
 
@@ -47,15 +54,14 @@ public class Main {
         @Override
         public void run() {
             while (true) {
-               synchronized (lock){
+               synchronized(lock){
                    try {
                        lock.wait();
                    } catch (InterruptedException e) {
                        throw new RuntimeException(e);
                    }
-                   out.println(Thread.currentThread().getName());
+                   out.println("Thread name is " + Thread.currentThread().getName());
                }
-                out.println("Thread name is " + Thread.currentThread().getName());
             }
         }
     }
@@ -64,7 +70,7 @@ public class Main {
         public void run() {
             while (true) {
                 synchronized (lock){
-                    out.println(Thread.currentThread().getName());
+                    out.println("Thread name is " + Thread.currentThread().getName());
                     lock.notify();
                 }
                 try {
